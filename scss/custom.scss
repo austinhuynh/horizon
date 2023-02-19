@@ -1,0 +1,471 @@
+$primary: #000000;
+$secondary: #FF6700;
+$success: #4F0D72;
+$light: #2E2E2E;
+$info: #FFFFFF;
+$white: #FFFFFF;
+$bs-danger-rgb: linear-gradient(90deg, #FF6700 0%, #DC23A8 37%, #DC23A8 69%, #4F0D72 100%);
+
+$btn-border-radius: 0;
+
+$accordion-bg: $primary;
+$accordion-button-active-bg: $primary;
+$accordion-border-radius: 0;
+
+$accordion-icon-width:                    1.25rem;
+$accordion-icon-color:                    $white;
+$accordion-icon-active-color:             $white;
+$accordion-icon-transition:               transform .2s ease-in-out;
+$accordion-icon-transform:                rotate(-180deg);
+
+$accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z'/></svg>");
+$accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z'/></svg>");
+
+// $navbar-light-toggler-icon-bg:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus-lg' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z'/></svg>");
+// $navbar-light-toggler-border-color: none;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* ********************************* RESET ********************************* */
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+/* ********************************* VARIABLES ***************************** */
+
+  :root {
+    --eclipse-black: #000000;
+    --ultraviolet: #D020E4;
+    --radioactive-orange: #FF6700;
+    --pluto-white: #FFFFFF;
+    --cosmic-purple: #4F0D72;
+    --horizon-gradient: linear-gradient(90deg, #FF6700 0%, #DC23A8 37%, #DC23A8 69%, #4F0D72 100%);
+    --desktop-padding: 40px;
+    --desktop-icon-size: 30px;
+    --mobile-padding: 30px;
+    --mobile-icon-size: 24px;
+    --horizon-font-size: 5rem;
+    --time-font-size: 3.5rem;
+    --margin-timer-size: 23px 10px 0 10px;
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --eclipse-black: #000000;
+      --ultraviolet: #D020E4;
+      --radioactive-orange: #FF6700;
+      --pluto-white: #FFFFFF;
+      --cosmic-purple: #4F0D72;
+      --horizon-gradient: linear-gradient(90deg, #FF6700 0%, #DC23A8 37%, #DC23A8 69%, #4F0D72 100%);
+      --desktop-padding: 30px;
+      --desktop-icon-size: 20px;
+      --mobile-padding: 20px;
+      --mobile-icon-size: 20px;
+      --horizon-font-size: 3rem;
+      --time-font-size: 2rem;
+      --margin-timer-size: 10px 2px 0 2px;
+    }
+  }
+
+  @font-face {
+    font-family: 'HK Grotesk Wide';
+    src: url("../../fonts/HKGroteskWide/OTF/HKGroteskWide-Black.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: 'Gobold High Bold';
+    src: url("../../fonts/gobold/Gobold\ High\ Bold.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: 'Gobold High Normal';
+    src: url("../../fonts/gobold/Gobold\ Bold.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: 'Space Mono';
+    src: url("../../fonts/Space_Mono/SpaceMono-Regular.ttf");
+  }
+
+/* ************************************************************************* */
+
+body {
+    font-family: 'Space Mono' !important;
+}
+
+#container {
+    position: relative;
+}
+
+#container:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    display: block;
+    background-size: contain;
+    background-image: url(../images/bg-stars.jpg);
+}
+
+#content {
+    position: relative;
+}
+
+.section-title {
+    font-family: 'HK Grotesk Wide';
+    letter-spacing: 0.12em;
+    font-size: 2.5rem;
+}
+
+a {
+  color: #FFB27D;
+}
+
+a:hover {
+  color: #FF6700;
+}
+
+strong {
+  color: #E054F0;
+}
+
+
+/* ***************************** Teaser Layout ****************************** */
+
+#reg-btn-container-mobile {
+  display: none;
+}
+
+#reg-btn-container-desktop {
+  display: flex;
+}
+
+#splash-comet {
+  opacity: 0.6;
+}
+
+@media (max-width: 769px) {
+
+  #countdown-container {
+    position: absolute;
+    top: 20% !important;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  #reg-btn-container-mobile {
+    position: absolute;
+    bottom: 20% !important;
+    left: 50%;
+    transform: translate(-50%);
+    display: block;
+  }
+
+  #reg-btn-container-desktop {
+    display: none;
+  }
+
+  #splash-comet {
+    opacity: 1;
+  }
+
+  #orange-container {
+    width: 100vw;
+  }
+
+
+}
+
+/* ************************ Socials Header and Footer ********************** */
+footer {
+  img {
+    padding: 0;
+  }
+}
+
+
+/* ********************* Comet and Asteroid and Rocket ********************* */
+
+h2 {
+    font-family: 'Gobold High Normal';
+    color: var(--pluto-white);
+    padding: 0 0.25em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+section {
+  padding: 60px 0px;
+}
+
+#rocket-container {
+  transform: translate(0px, -50px);
+}
+
+#rocket {
+  width: 75%;
+  opacity: 1;
+  transform: rotate(-30deg);
+}
+
+@media (min-width: 694px) {
+  section {
+    padding-top: 150px;
+  }
+}
+
+@media (max-width: 694px) {
+  #rocket {
+    width: 50%;
+  }
+}
+
+/* ****************************** Buttons  ********************************** */
+.main-btn {
+  padding: 20px 60px;
+}
+
+.main-btn:hover {
+  color: #000000 !important;
+  background-color: #FFFFFF !important;
+}
+
+@media (max-width: 768px) {
+  .main-btn {
+    width: 100%;
+  }
+}
+
+/* *************************** Mobile Navbar ******************************* */
+#mobile-nav-container {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  overflow: hidden;
+  background-image: url('../images/bg-stars-mobile.png');
+  mix-blend-mode: normal;
+  background-size: contain;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 80px;
+
+  ul {
+    padding: 0px;
+  }
+
+  a {
+    height: 100%;
+    width: 100%;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'HK Grotesk Wide';
+
+    li {
+      list-style-type: none;
+      padding: 25px 0px;
+      border-bottom-style: solid;
+      border-width: 1px;
+      border-color: #FFFFFF;
+      font-size: 1.7rem;
+      padding-left: 40px;
+    }
+  }
+}
+
+#mobile-nav-btn {
+  position: fixed;
+  overflow: hidden;
+  right: 0;
+  margin: 5%;
+  padding: 2%;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+
+  .open {
+    transition: 0.3s ease-in-out;
+    transform: rotate(225deg);
+  }
+  .close {
+    transition: 0.4s ease-in-out;
+  }
+}
+
+#mobile-nav-footer {
+  bottom: 30px;
+}
+
+@media (max-height: 645px) {
+  #mobile-nav-container {
+    a {
+      height: 100%;
+      width: 100%;
+      color: #FFFFFF;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: 'Gobold High Normal';
+  
+      li {
+        list-style-type: none;
+        padding: 10px 0px;
+        border-bottom-style: solid;
+        border-width: 2px;
+        border-color: #FFFFFF;
+        font-size: 1.4rem;
+        padding-left: 40px;
+      }
+    }
+  }
+}
+
+/* ******************************* Navbar ********************************** */
+
+.nav-link:hover {
+  color: var(--radioactive-orange) !important;
+}
+
+.nav-link.active {
+  color: var(--radioactive-orange) !important;
+}
+
+.nav-link:visited {
+  color: var(--eclipse-black);
+}
+
+.nav-link {
+  color: var(--eclipse-black);
+}
+
+
+/* ***************************** Lineup Page ******************************* */
+.artist-row {
+  background-color: #D9D9D9;
+  margin: 100px 0px;
+}
+
+.artist-img {
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
+
+.artist-text {
+  padding: 80px 75px;
+}
+
+
+.artist-title {
+  color: #333333;
+  font-family: 'Gobold High Bold';
+  font-size: 3.5rem;
+}
+
+.artist-content {
+  font-size: 1rem;
+}
+
+
+@media (max-width: 694px) {
+  .artist-text {
+    padding: 40px 30px;
+  }
+  .artist-title {
+    font-size: 3rem;
+  }
+  .artist-content {
+    font-size: 0.75rem;
+  }
+}
+
+/* ***************************** Merch Section ***************************** */
+@media (max-width: 768px) {
+  #merch-container {
+    max-width: 400px;
+  }
+}
+
+#merch img {
+  object-fit: contain;
+}
+
+#crewneck {
+  transition: 0.4s ease-in-out;
+  transform: rotate(8deg);
+}
+
+#crewneck:hover{
+  transition: 0.4s ease-in-out;
+  transform: scale(1.1, 1.1);
+}
+
+#bucket-hat {
+  transition: 0.4s ease-in-out;
+  transform: rotate(-8deg);
+}
+
+#bucket-hat:hover{
+  transition: 0.4s ease-in-out;
+  transform: scale(1.1, 1.1);
+}
+
+#stickers {
+  transition: 0.4s ease-in-out;
+  transform: rotate(-8deg);
+}
+
+#stickers:hover{
+  transition: 0.4s ease-in-out;
+  transform: scale(1.1, 1.1);
+}
+
+
+/* *************************** Countdown Timer ***************************** */
+#landing-hero h1 {
+  text-transform: uppercase;
+  font-family: 'HK Grotesk Wide';
+  font-size: var(--horizon-font-size);
+  letter-spacing: 0.12em;
+  height: 60px;
+  text-align: center;
+  background: var(--horizon-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 769px) {
+  #landing-hero h1 {
+    height: 86.4px;
+  }
+}
+
+.countdown .countdown__timer .countdown__timer__other,
+.countdown .countdown__timer .countdown__timer__days,
+.countdown .countdown__timer .countdown__timer__hours,
+.countdown .countdown__timer .countdown__timer__minutes,
+.countdown .countdown__timer .countdown__timer__seconds {
+  vertical-align: top;
+  text-transform: uppercase;
+  margin: var(--margin-timer-size);
+  color: var(--pluto-white);
+  display: inline-block;
+}
+
+.countdown .countdown__timer p {
+  font-family: 'Gobold High Bold';
+  font-size: var(--time-font-size);
+  font-kerning: 3%;
+}
+
+.countdown .countdown__timer h3 {
+  font-family: 'Space Mono';
+  font-size: 14px;
+  line-height: 150%;
+  font-kerning: 0%;
+  font-weight: bold;
+}

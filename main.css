@@ -1,0 +1,188 @@
+/* ********************************* RESET ********************************* */
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+/* ********************************* VARIABLES ***************************** */
+  
+  :root {
+    --eclipse-black: #000000;
+    --ultraviolet: #D020E4;
+    --radioactive-orange: #FF6700;
+    --pluto-white: #FFFFFF;
+    --cosmic-purple: #4F0D72;
+    --horizon-gradient: linear-gradient(90deg, #FF6700 0%, #DC23A8 37%, #DC23A8 69%, #4F0D72 100%);
+    --desktop-padding: 40px;
+    --desktop-icon-size: 30px;
+    --mobile-padding: 30px;
+    --mobile-icon-size: 24px;
+    --horizon-font-size: 5rem;
+    --time-font-size: 3.5rem;
+    --margin-timer-size: 23px 10px 0 10px;
+  }
+  
+  @media (max-width: 768px) {
+    :root {
+      --eclipse-black: #000000;
+      --ultraviolet: #D020E4;
+      --radioactive-orange: #FF6700;
+      --pluto-white: #FFFFFF;
+      --cosmic-purple: #4F0D72;
+      --horizon-gradient: linear-gradient(90deg, #FF6700 0%, #DC23A8 37%, #DC23A8 69%, #4F0D72 100%);
+      --desktop-padding: 30px;
+      --desktop-icon-size: 20px;
+      --mobile-padding: 20px;
+      --mobile-icon-size: 20px;
+      --horizon-font-size: 3rem;
+      --time-font-size: 2rem;
+      --margin-timer-size: 10px 2px 0 2px;
+    }
+  }
+  
+  @font-face {
+    font-family: 'HK Grotesk Wide';
+    src: url("../fonts/HKGroteskWide/OTF/HKGroteskWide-Black.otf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: 'Gobold High Bold';
+    src: url("../fonts/gobold/Gobold\ High\ Bold.otf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: 'Gobold High Normal';
+    src: url("../fonts/gobold/Gobold\ Bold.otf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: 'Space Mono';
+    src: url("../fonts/Space_Mono/SpaceMono-Regular.ttf");
+  }
+
+/* ************************************************************************* */
+
+body {
+    background-color: var(--eclipse-black);
+    font-family: 'Space Mono' !important;
+}
+
+#container {
+    position: relative;
+}
+
+#container:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    display: block;
+    background-size: contain;
+    background-image: url(./images/bg-stars.jpg);
+}
+
+#content {
+    position: relative;
+}
+
+/*************************** Comet and Asteroid ******************************/
+
+h2 {
+    font-family: 'Gobold High Normal';
+    color: var(--pluto-white);
+    padding: 0 0.25em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+section {
+  padding: 100px 0px;
+}
+
+@media (min-width: 694px) {
+  section {
+    padding-top: 150px;
+  }
+}
+
+.bg-primary {
+    background-color: var(--eclipse-black) !important;
+}
+
+.bg-light {
+    background-color: #2e2e2e !important;
+}
+
+.accordion-item {
+    background-color: var(--eclipse-black) !important;
+}
+
+.accordion-button {
+    background-color: var(--eclipse-black) !important;
+}
+
+/* ******************************* Navbar ********************************** */
+
+.nav-link:hover {
+  color: var(--radioactive-orange) !important;
+}
+
+.nav-link.active {
+  color: var(--radioactive-orange) !important;
+}
+
+.nav-link:visited {
+  color: var(--eclipse-black);
+}
+
+.nav-link {
+  color: var(--eclipse-black);
+}
+
+/* *************************** Countdown Timer ***************************** */
+#landing-hero h1 {
+  text-transform: uppercase;
+  font-family: 'HK Grotesk Wide';
+  font-size: var(--horizon-font-size);
+  letter-spacing: 0.12em;
+  height: 60px;
+  text-align: center;
+  background: var(--horizon-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 769px) {
+  #landing-hero h1 {
+    height: 86.4px;
+  }
+}
+
+.countdown .countdown__timer .countdown__timer__other,
+.countdown .countdown__timer .countdown__timer__days,
+.countdown .countdown__timer .countdown__timer__hours,
+.countdown .countdown__timer .countdown__timer__minutes,
+.countdown .countdown__timer .countdown__timer__seconds {
+  vertical-align: top;
+  text-transform: uppercase;
+  margin: var(--margin-timer-size);
+  color: var(--pluto-white);
+  display: inline-block;
+}
+
+.countdown .countdown__timer p {
+  font-family: 'Gobold High Bold';
+  font-size: var(--time-font-size);
+  font-kerning: 3%;
+}
+
+.countdown .countdown__timer h3 {
+  font-family: 'Space Mono';
+  font-size: 14px;
+  line-height: 150%;
+  font-kerning: 0%;
+  font-weight: bold;
+}
