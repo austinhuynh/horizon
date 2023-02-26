@@ -1,4 +1,3 @@
-import * as THREE from '../node_modules/three';
 // mobile nav
 const navContainer = document.getElementById('mobile-nav-container');
 const navBtn = document.getElementById('mobile-nav-plus');
