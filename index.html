@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Horizon 2023</title>
+
+    <!--stylesheet-->
+    <link rel="stylesheet" href="./scss/custom.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src=https://www.googletagmanager.com/gtag/js?id=G-99ZCKRESZP></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-99ZCKRESZP');
+</script>
+
+<body class="bg-primary" style="overflow-x: hidden;">
+    <div id="container">
+        <div id="content">
+            <!--Landing Hero-->
+            <div>
+              <div id="landing-hero" class="position-relative" style="height: 100vh;">
+                <button id="mobile-nav-btn" onclick="navToggle()" class="d-block d-md-none">
+                  <svg id="mobile-nav-plus" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg>
+                </button>
+                <nav id="mobile-nav-container">
+                  <ul>
+                    <a href="#lineup">
+                      <li onclick="navToggle()" style="border-top-style: solid; border-color: #FFFFFF;">
+                        lineup
+                      </li>
+                    </a>
+                    <a href="#venue-map">
+                      <li onclick="navToggle()">
+                        venue map
+                      </li>
+                    </a>
+                    <a href="#merch">
+                      <li onclick="navToggle()">
+                        merch
+                      </li>
+                    </a>
+                    <a href="#information">
+                      <li onclick="navToggle()">
+                        information
+                      </li>
+                    </a>
+                    <a href="#faq">
+                      <li onclick="navToggle()">
+                        faq
+                      </li>
+                    </a>
+                    <a href="#safety">
+                      <li onclick="navToggle()">
+                        health & safety
+                      </li>
+                    </a>
+                  </ul>
+
+                  <div id="mobile-nav-footer" class="position-absolute row pt-5 px-4 gx-0" style="width: 100%;">
+                    <div class="col-2 d-flex justify-content-center">
+                      <a href="https://www.instagram.com/ucsdasce/" target="_blank">
+                        <img class="img-fluid" src="./images/footer-instagram.png" alt="" style="height: var(--mobile-icon-size);">
+                      </a>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center">
+                      <a href="https://www.facebook.com/ucsdasce/" target="_blank">
+                        <img class="img-fluid" src="./images/footer-facebook.png" alt="" style="height: var(--mobile-icon-size);">
+                      </a>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center">
+                      <a href="https://www.tiktok.com/@ascebear" target="_blank">
+                        <img class="img-fluid" src="./images/footer-tiktok.png" alt="" style="height: var(--mobile-icon-size);">
+                      </a>
+                    </div>
+
+                    <div id="spacer" class="col"></div>
+
+                    <div class="col-1 d-flex justify-content-center">
+                      <a href="https://asce.ucsd.edu" target="_blank">
+                        <img class="img-fluid" src="./images/footer-asce.png" alt="" style="height: var(--mobile-icon-size);">
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+
+                  <div id="bear-desktop" class="position-absolute end-50 top-50" style="z-index: 4;">
+                    <img src="./images/spacebear_float.png" alt="" style="width: 50%; height: 50%; opacity: 1; max-width: 460px;">
+                  </div>
+
+                  <div id="bear-mobile" class="position-absolute top-50 start-50 translate-middle" style="z-index: 4;">
+                    <img src="./images/spacebear_float.png" alt="" style="width: 100%; height: 50%; opacity: 1; max-width: 460px;">
+                  </div>
+
+                  <div id="orange-container-desktop" class="position-absolute start-0">
+                    <source media="(max-width: 769px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" sizes="100%">
+                  </div>
+
+                  <div class="py-5 d-flex align-items-center" style="height: 100vh;">
+                    <img src="./images/bg-grid.png" alt="" style="width: 100%; height: 90%; max-height: 500px; opacity: 0.4;">
+                  </div>
+                  
+                  <div class="position-absolute start-50">
+                    <img src="./images/bg-purple.png" alt="" style="width: 50%; height: 50%; opacity: 0.4;">
+                  </div>
+
+                  <div id="countdown-container" class="position-absolute top-50 start-50 translate-middle">
+                    <!-- countdown timer -->
+                      <div class="countdown">
+                        <div class="countdown__title d-flex justify-content-center">
+                            <h1>horizon</h1>
+                        </div>
+                        <div class="countdown__timer d-flex justify-content-center">
+                            <div class="countdown__timer__other">
+                                <p>T-</p>
+                            </div>
+                            <div class="countdown__timer__days text-center">
+                                <p id="days"></p>
+                                <h3>Days</h3>
+                            </div>
+                            <div class="countdown__timer__other text-center">
+                                <p>:</p>
+                            </div>
+                            <div class="countdown__timer__hours text-center">
+                                <p id="hours"></p>
+                                <h3>Hours</h3>
+                            </div>
+                            <div class="countdown__timer__other text-center">
+                                <p>:</p>
+                            </div>
+                            <div class="countdown__timer__minutes text-center">
+                                <p id="minutes"></p>
+                                <h3>Minutes</h3>
+                            </div>
+                            <div class="countdown__timer__other text-center">
+                                <p>:</p>
+                            </div>
+                            <div class="countdown__timer__seconds text-center">
+                                <p id="seconds"></p>
+                                <h3>Seconds</h3>
+                            </div>
+                        </div>
+                      </div>
+                      <div id="reg-btn-container-desktop" class="justify-content-center mt-4">
+                        <a href="https://amphitheater.ucsd.edu/" class="main-btn btn btn-primary border fw-bold" target="_blank">
+                            REGISTER NOW
+                        </a>
+                      </div>
+                  </div>
+
+                  <div id="reg-btn-container-mobile" class="justify-content-center mt-4 col-10">
+                    <h2 class="col-12" style="font-family: Gobold High Bold, Arial, Helvetica, sans-serif; font-size: 1.8rem;">EPSTEIN FAMILY AMPHITHEATER | MAR 3-4</h2>
+                    <a href="https://amphitheater.ucsd.edu/" class="main-btn btn btn-primary border p-3 fw-bold" target="_blank">
+                        REGISTER NOW
+                    </a>
+                  </div>
+              </div>
+          </div>
+
+
+          <nav id="navbar" class="navbar sticky-top bg-light mb-3 p-3 justify-content-center border-top border-bottom d-none d-md-block">
+            <ul class="nav d-flex align-items-center justify-content-center fs-5">
+              <li class="nav-item d-flex align-items-center">
+                <a id="nav-registration" class="nav-link text-white" href="#registration">REGISTER</a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a id="nav-lineup" class="nav-link text-white" href="#lineup">LINEUP</a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a id="nav-venue-map" class="nav-link text-white" href="#venue-map">VENUE MAP</a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a id="nav-merch" class="nav-link text-white" href="#merch">MERCH</a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a id="nav-information" class="nav-link text-white" href="#information">INFO</a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a id="nav-faq" class="nav-link text-white" href="#faq">FAQ</a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a id="nav-safety" class="nav-link text-white" href="#safety">HEALTH & SAFETY</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!--Registration-->
+          <section id="registration">
+              <div class="mt-5">
+                  <div class="col-10 mx-auto text-center bg-primary py-5">
+                      <h2 class="fs-1" style="font-family: HK Grotesk Wide;">HORIZON 2023</h2> <br><br>
+                      <p class="text-white fs-5">
+                        <!--TODO: Casing is weird? Capital or no?-->
+                        March 3-4 2023 <br><br>
+                        Doors at 7PM both days <br><br>
+                        <!--TODO: Still iffy on the linebreak...-->
+                        Epstein Family <br class="d-block d-md-none">Amphitheater 
+                      </p>
+                  </div>
+              </div>
+          </section>
+
+          <!--Lineup-->
+          <section id="lineup">
+              <div>
+                  <div class="col-10 mx-auto pt-5">
+                      <h2 class="section-title mb-4 mb-md-5">Lineup</h2>
+
+                      <div id="lineup-container" class="border" style="background-image: linear-gradient(to bottom right, rgba(255, 103, 0, 0.3), rgba(79, 13, 114, 0.4));">
+                        <nav>
+                          <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+                            <button class="nav-link active bg-transparent col border-0 py-4" style="border-radius: 0;" id="day1-tab" data-bs-toggle="tab" data-bs-target="#day1-pane" type="button" role="tab" aria-controls="day1-pane" aria-selected="true"><h3 class="fs-1" style="color: #FF6700; font-family: 'Gobold High Bold', Arial, Helvetica, sans-serif;">DAY 1</h3></button>
+                            <button class="nav-link bg-primary col border-0 border-start border-bottom" style="border-radius: 0;" id="day2-tab" data-bs-toggle="tab" data-bs-target="#day2-pane" type="button" role="tab" aria-controls="day2-pane" aria-selected="true"><h3 class="fs-1" style="color: #DC23A8; font-family: 'Gobold High Bold', Arial, Helvetica, sans-serif">DAY 2</h3></button>
+                          </div>
+                        </nav>
+
+                        <div class="tab-content px-4 px-md-5" id="myTabContent">
+                          <div class="tab-pane fade show active" id="day1-pane" role="tabpanel" aria-labelledby="day1-tab">
+                            <div class="row artist-row">
+                              <div class="col-12 col-lg p-0 d-flex align-items-center justify-content-center artist-img" style="background-image: url(./images/day1-headline.jpg);"></div>
+                              <div class="col-12 col-lg-7 row d-flex justify-content-start artist-text">
+                                <h2 class="text-start artist-title">ROLE MODEL</h2>
+                                <p class="col-12 artist-content">Tucker Pillsbury assembles, disassembles, and reassembles different vibes, sounds, and emotions into Role Model. One moment, he's crooning about his crush's earrings over crunchy chords. The next, he's spitting bars about staying home. Either way, the intimacy of his songwriting beckons connection. You'll experience doubt, anxiety, infatuation, and even love right next to him.</p>
+                              </div>
+                            </div>
+
+                            <div class="row artist-row">
+                              <div class="col-12 col-lg-7 row d-flex justify-content-start artist-text order-2 order-lg-1">
+                                <h2 class="text-start artist-title">Aidan Bissett</h2>
+                                <p class="col-12 artist-content">At just 20-years-old, Aidan Bissett has perfected the art of twisting heartbreak into exhilarating music. Since breaking through with a series of self-produced singles in 2020—and signing to Capitol Records—the Los Angeles-based artist has earned an adoring global fanbase irresistibly drawn to his guitar-driven alt-pop and confessional yet carefree songwriting. 2022 saw Bissett release his EP, 'I'm Alright If You're Ok', featuring standout tracks “Tripping Over Air”, “All That I'm Craving”, and “Twenty Something” and tour with Claire Rosinkranz, Lauv, and The Greeting Committee.</p>
+                              </div>
+                              <div class="col-12 col-lg d-flex align-items-center justify-content-center artist-img order-1 order-lg-2" style="background-image: url(./images/day1-support.jpg);"></div>
+                            </div>
+
+                            <div class="row artist-row">
+                              <div class="col-12 col-lg d-flex align-items-center justify-content-center artist-img" style="background-image: url(./images/day1-student.jpg);"></div>
+                              <div class="col-12 col-lg-7 row d-flex justify-content-start artist-text">
+                                <h2 class="text-start artist-title">The Diz</h2>
+                                <p class="col-12 artist-content">The Diz is a new four piece band that doesn't hold themselves to any specific genre of music. With original songs that span from funky rock anthems that will get you dancing and grooving, to beautiful ballads that can make you cry, a full set by the Diz is an emotional roller coaster that leaves you wanting more. Friendship runs deep in the band and is always on full display, both in how well the musicians meld with each other, as well as their propensity to get goofy and have fun.</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="tab-pane fade show" id="day2-pane" role="tabpanel" aria-labelledby="day2-tab">
+                            <div class="row artist-row">
+                              <div class="col-12 col-lg-7 row d-flex justify-content-start artist-text order-2 order-lg-1">
+                                <h2 class="text-start artist-title">THUY</h2>
+                                <p class="col-12 artist-content">Bay Area R&B artist, thuy (pronounced 'twee'), began her musical career in stunning fashion with her first radio record, “Hands on Me”. The now Los Angeles-based artist has released several records showcasing her angelic vocals, skillful songwriting, and modern R&B stylings. Having amassed over 150 million streams worldwide and garnered support from Billboard, Rolling Stone, and more, thuy has carved out a space for herself both within and beyond the community of self-made Asian-American musical artists. As she sets herself apart in today's pop R&B scene, thuy hopes that her music continues to inspire confidence in others.</p>
+                              </div>
+                              <div class="col-12 col-lg d-flex align-items-center justify-content-center artist-img order-1 order-lg-2" style="background-image: url(./images/day2-headline.jpg);"></div>
+                            </div>
+
+                            <div class="row artist-row">
+                              <div class="col-12 col-lg d-flex align-items-center justify-content-center artist-img" style="background-image: url(./images/day2-support.png);"></div>
+                              <div class="col-12 col-lg-7 row d-flex justify-content-start artist-text">
+                                <h2 class="text-start artist-title">ISAAC DUNBAR</h2>
+                                <p class="col-12 artist-content">If Isaac Dunbar revealed himself to be a time traveler, it would make perfect sense. The Rhode Island-born and Los Angeles-based singer, songwriter, multi-instrumentalist, and producer leaps between Broadway levels of theatrical bombast, skyscraping stadium rock hooks straight out of the seventies, nineties-esque alternative spirit, and larger-than-life two-thousands pop extravagance. There's nothing subtle about him&#8212;and the world is better for it. Isaac's keen emotional intuition and artistic acuity belie his age, and at just 19-years-old he has asserted himself as the rare talent who gleefully defies genres, rules, and eras all at once.</p>
+                                <!-- In between opening for girl in red during 2019, he unveiled music at prolific pace. "onion boy" racked up over 19 million Spotify streams, while <i>balloons don't float here</i> instantly reacted with audiences. At 16-years-old, he inked a deal with RCA Records and served up <i>isaac's insects</i> in 2020 and <i>evil twin</i> in 2021. The latter boasted "love, or the lack thereof," amassing north of 14 million Spotify streams. Along the way, <i>VMAN</i> attested <i>"an expert autodidact, Dunbar's impressive knowledge of music theory and diverse tonal range have set the young vocalist apart from cookie-cutter pop."</i> Following acclaim from <i>Time</i>, <i>Billboard</i>, <i>Teen Vogue</i>, <i>Nylon</i>, <i>The FADER</i>, <i>NPR</i>, and more, the Afro-Italian American crash landed as the outlier we need right now with his 2022 EP, <i>Banish The Banshee</i> via RCA Records.</p> -->
+                                <!-- <p class="col-12 artist-content">Synth-pop singer Isaac Dunbar began writing music at age nine, using online tutorials to teach himself how to play keys and guitar as well as how to use production software. Apple Music radio host Zane Lowe premiered his breakout track, "Pharmacy," after the romantic trap-pop song created buzz among bloggers when Dunbar posted it online at age 14. On the heels of his 2020 major label debut, <i>isaac's insects, E! Online</i> named him one of 15 Future Pop Stars You Need to Know Now. He collaborated with award-winning pop producer Leland on the track "God, This Feels Good" for the teen dramedy <i>Love, Victor</i>.</p> -->
+                              </div>
+                            </div>
+
+                            <div class="row artist-row">
+                              <div class="col-12 col-lg-7 row d-flex justify-content-start artist-text order-2 order-lg-1">
+                                <h2 class="text-start artist-title">KADO & DIFUEGO</h2>
+                                <p class="col-12 artist-content">A hip-hop and R&B inspired act rapped by KADO and produced and engineered by DIFUEGO. They combine old-school rap flows and lyricism with new school instrumentals full of soul and jazz samples that create their fresh and unique sound.</p>
+                              </div>
+                              <div id="day2-student" class="col-12 col-lg d-flex align-items-center justify-content-center artist-img order-1 order-lg-2" style="background-image: url(./images/day2-student.png); background-position: top;"></div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <!--Venue Map-->
+          <section id="venue-map">
+            <h2 class="section-title mb-4 mb-md-5">Venue Map</h2>
+            <div class="d-flex justify-content-center">
+              <img class="img-fluid d-none d-md-block" style="max-height: 800px;" src="./images/VenueMap_Horizontal_NOLEGEND.png" alt="">
+              <img class="img-fluid d-block d-md-none" src="./images/VenueMap_Vertical_NOLEGEND.png" alt="">
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="legend-container">
+
+                    <div class="legend-wrap">
+                      <div class="legend-block" style="background-color: #FF6700;"></div>
+                      <div class="legend-info text-bg-primary">
+                        <span class="legend-text bg-primary" style="vertical-align:super ;">LAWN</span>
+                      </div>
+                    </div>
+
+                    <div class="legend-wrap">
+                      <div class="legend-block" style="background-color: #D020E4;"></div>
+                      <div class="legend-info text-bg-primary">
+                        <span class="legend-text">UPPER BOWL</span>
+                        <br/>
+                        <span class="legend-subtext">Benches without Backs</span>       
+                      </div>
+                    </div>
+
+                    <div class="legend-wrap">
+                      <div class="legend-block" style="background-color: #F2A9FF;"></div>
+                      <div class="legend-info text-bg-primary">
+                        <span class="legend-text">LOWER BOWL</span>
+                        <br/>
+                        <span class="legend-subtext">Benches with Backs</span>       
+                      </div>
+                    </div>
+              </div>
+            </div>
+                        
+          </section>
+
+          <!--Merch-->
+          <section id="merch">
+            <div>
+                <div class="col-10 mx-auto">
+                    <h2 class="section-title mb-4 mb-md-5">Merch</h2>
+                    <div class="d-flex justify-content-center">
+                      <div id="merch-container" class="row d-flex align-items-center justify-content-center">
+                        <a href="https://to.ucsd.edu/collections/horizon-2023/products/horizon-sweatshirt" target="_blank" class="col-12 col-md-4 py-5"><img id="crewneck" class="img-fluid" src="./images/crewneck.png" alt="purple horizon crewneck with space bear logo"></a>
+                        <a href="https://to.ucsd.edu/collections/horizon-2023/products/horizon-bucket-hat" target="_blank" class="col-12 col-md-4 my-3"><img id="bucket-hat" class="img-fluid" src="./images/bucket-hat.png" alt="black horizon bucket hat"></a>
+                        <a href="https://to.ucsd.edu/collections/horizon-2023/products/horizon-spasce-bear-sticker" target="_blank" class="col-12 col-md-4 my-5 d-flex justify-content-center"><img id="stickers" class="img-fluid" src="./images/stickers.png" alt="a space bear horizon sticker and a plain text horizon sticker"></a>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                      <a id="merch-btn" href="https://to.ucsd.edu/collections/horizon-2023" class="main-btn btn btn-primary border fw-bold" target="_blank">
+                        BUY MERCH
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+          <!--Information-->
+          <section id="information">
+              <div>
+                  <div class="col-10 mx-auto">
+                      <h2 class="section-title mb-3">Info</h2>
+
+                      <div class="d-flex justify-content-end">
+                        <button data-target="infoAccordion" data-expanded="false" type="button" class="btn btn-link text-white" onclick="expandAll(this)">Expand All</button>
+                      </div>
+                      
+                      <div class="accordion" id="infoAccordion">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                              <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                About
+                              </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse text-white" aria-labelledby="headingOne" data-bs-parent="#infoAccordion">
+                              <div class="accordion-body">
+                                  <strong>About</strong><br>
+                                  <p>ASCE is proud to present Horizon, a new campus tradition where epic experiences come to life and incredible memories are made.
+                                  Join us at Epstein Family Amphitheater to enjoy nationally known artists in an all new immersive concert experience.
+                                  Take a journey with us to see what's beyond the Horizon.</p><br>
+
+                                  <strong>Vision</strong><br>
+                                  <p>To establish a lasting nighttime winter concert tradition that highlights student and rising talent.</p><br>
+
+                                  <strong>Mission</strong><br>
+                                  <p>To curate an immersive 2-day concert at Epstein Family Amphitheater that features student talent and up-and-coming nationally
+                                  touring artists. We aim to use student input and industry best practices to establish a concert students look forward to
+                                  attending every year.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                              <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Registration
+                              </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse text-white" aria-labelledby="headingTwo" data-bs-parent="#infoAccordion">
+                              <div class="accordion-body">
+                                <!-- TODO:add link -->
+                                  <strong>Undergraduate Registration</strong><br>
+                                  <p>Registration opens February 21, 2023 @ 10AM. The registration is a multi-step process that requires
+                                  your name, PID, and UCSD Student ID barcode number (located on the back of your student ID card).</p><br>
+
+                                  <p>ONLY STUDENTS WHO COMPLETE THE REGISTRATION MAY ATTEND THE CONCERT.</p><br>
+                                  <div class="d-flex justify-content-center mt-2">
+                                    <a id="accordion-registration-btn" href="https://amphitheater.ucsd.edu/" class="main-btn btn btn-primary border fw-bold" target="_blank">
+                                      REGISTER NOW
+                                    </a>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                              <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Transportation
+                              </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse text-white" aria-labelledby="headingThree" data-bs-parent="#infoAccordion">
+                              <div class="accordion-body">
+                                  <p>
+                                      Having a plan for getting to and from campus safely is part of the safe Horizon experience. Parking and transportation on campus
+                                      is heavily impacted on the day of Horizon with some nearby parking lots being reserved, either partially or in full for staff:
+                                      including Hopkins Parking Structure, Pangea Parking Structure, P357 and Spanos Loop. Please don't drink and drive! Leave your car
+                                      at home and use one of these convenient transportation alternatives:<br><br>
+
+                                      <strong>Ride an MTS Bus</strong></a><br>
+                                      The San Diego Metropolitan Transit System provides bus service to the UC San Diego campus. The following routes will run on Saturday,
+                                      April 30th (click the route number to see the route schedule):<br>
+
+                                      <ul>
+                                          <li>
+                                              <a href="https://www.sdmts.com/getting-around/departures-and-schedules/schedules/201" target="_blank">Route 201</a>
+                                              <ul>
+                                                  <li>
+                                                      UTC -> UCSD -> La Jolla Village Square -> UTC
+                                                  </li>
+                                                  <li>
+                                                      Arrives/Departs UCSD approx. every 15 minutes
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <a href="https://www.sdmts.com/getting-around/departures-and-schedules/schedules/202" target="_blank">Route 202</a>
+                                              <ul>
+                                                  <li>
+                                                      UTC -> La Jolla Village Square -> UCSD -> UTC
+                                                  </li>
+                                                  <li>
+                                                      Arrives/Departs UCSD approx. every 15 minutes
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <a href="https://www.sdmts.com/getting-around/departures-and-schedules/schedules/921" target="_blank">Route 921A West</a>
+                                              <ul>
+                                                  <li>
+                                                      Mira Mesa -> Sorrento Valley -> La Jolla Village Dr & Genesee -> UCSD
+                                                  </li>
+                                                  <li>
+                                                      Arrives/Departs UCSD approx. hourly
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                          <li>
+                                              <a href="https://www.sdmts.com/getting-around/departures-and-schedules/schedules/921" target="_blank">Route 921A East</a>
+                                              <ul>
+                                                  <li>
+                                                      UCSD -> La Jolla Village Dr & Genesee -> Sorrento Valley -> Mira Mesa
+                                                  </li>
+                                                  <li>
+                                                      Arrives/Departs UCSD approx. hourly
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                      Visit <a href="https://www.sdmts.com/transit-services/bus-routes" target="_blank">SDMTS.com</a> for more information about MTS bus service.<br><br>
+
+                                      <strong>UC SAN DIEGO BLUE LINE TROLLEY EXTENSION</strong><br>
+                                      The Trolley's UC San Diego Blue Line will go from the border with Mexico, through downtown and all the
+                                      way to UTC. Visit <a href="https://www.sdmts.com/getting-around/departures-and-schedules/schedules/510" target="_blank">SDMTS.com</a> for more information about the Blue Line Trolley System.
+                                      <br><br>
+                                      
+                                      <strong>RIDE-SHARE DROP-OFF/PICK-UP</strong><br>
+                                      Locations are available at:
+                                      <ul>
+                                        <li>
+                                          The cul-de-sac where Russell Lane meets Rupertus Lane
+                                        </li>
+                                        <li>
+                                          By the UC San Diego Central Campus Blue Line Trolley Stop off of Innovation Lane
+                                        </li>
+                                      </ul>
+
+                                      <strong>Parking</strong><br>
+                                      For your convenience, parking will be available at the following locations. Visitors can park in any
+                                      V, A, B, and S spaces daily from 4PM-7AM.  Permit pay stations are available at each parking lot or
+                                      use the Parkmobile App, Zone number 4752.<br><br>
+                                      
+                                      <!--TODO: text wrapping on the (_ min walk) is annoying-->
+                                      Parking Structures:
+                                      <ul>
+                                        <li>
+                                          Gilman Parking Structure (4 min walk)
+                                        </li>
+                                        <li>
+                                          Scholars Parking Structure (10 min walk)
+                                        </li>
+                                        <li>
+                                          Hopkins Parking Structure (11 min walk)
+                                        </li>
+                                        <li>
+                                          South Parking Structure (10 min walk)
+                                        </li>
+                                        <li>
+                                          P701 (15 min walk)
+                                        </li>
+                                      </ul>
+                                  </p>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <div id="rocket-container" class="position-absolute end-0" style="z-index: -1;">
+            <img id="rocket" src="./images/rocket.png" alt="Horizon rocket">
+          </div>
+
+          <!--FAQ-->
+          <section id="faq">
+              <div>
+                  <div class="col-10 mx-auto">
+                      <h2 class="section-title mb-3">FAQ</h2>
+
+                      <div class="d-flex justify-content-end">
+                        <button data-target="faqAccordion" data-expanded="false" type="button" class="btn btn-link text-white" onclick="expandAll(this)">Expand All</button>
+                      </div>
+
+                      <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                              General
+                            </button>
+                          </h2>
+                          <div id="collapseSeven" class="accordion-collapse collapse text-white" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                              <strong>When will the concert be held?</strong><br>
+                              Horizon will be a two-day concert held at the UCSD Epstein Family Amphitheater on March 3 and 4, 2023. Doors will open at 7PM.<br><br>
+
+                              <strong>What do I need to bring with me?</strong><br>
+                              While at the concert, you must carry a valid UCSD photo ID.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                              Tickets & Registration
+                            </button>
+                          </h2>
+                          <div id="collapseEight" class="accordion-collapse collapse text-white" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                              <!--TODO: Link to be sent-->
+                              <strong>Who can attend?</strong><br>
+                              Only undergraduate students enrolled at UC San Diego for at least one quarter during the 2022-2023 school year (i.e. Fall 2022 or Winter 2023) are eligible to attend. Summer sessions from 2022 or 2023 are not applicable.<br><br>
+
+                              The undergraduate student activity fee provides the majority of the funding for the concert. For more information about registration, please visit the Registration Page.<br><br>
+
+                              <strong>Will there be re-entry?</strong><br>
+                              No, due to the shorter hours of the concert, a no re-entry policy will be in effect.<br><br>
+
+                              <strong>I'm an undergraduate, am I guaranteed admission?</strong><br>
+                              No &#8212; all UCSD undergraduate students must register for concert access, which is subject to venue capacity. Students who are registered to attend must bring their valid UCSD student ID card and your unique QR code to enter the event.<br><br>
+
+                              <strong>Can international or extension students attend?</strong><br>
+                              Only international or extension students whose PID begins with the letter “A” are eligible.<br><br>
+
+                              <!--TODO: include?
+                                 <strong>I graduated early/took a quarter off, am I still eligible to attend?</strong><br>
+                              Yes, entry is free for undergraduate students enrolled at UC San Diego for at least one quarter during the
+                              2019-2020 school year (i.e. Fall 2019, Winter 2020, or Spring 2020). Summer sessions from 2019 or 2020 are not applicable.<br><br> -->
+
+                              <strong>I graduated early this year but lost my UCSD ID, can I still attend?</strong><br>
+                              Sorry, but a valid UCSD student ID is required to attend. Lost IDs for graduated students cannot be replaced. Please contact the <a href="https://sfs.ucsd.edu/campus-cards/your-student-id.html" target="_blank">Campus Cards Office</a> for more information.<br><br>
+
+                              <strong>Can I use my friend's pre-registered UCSD ID card or buy/rent a friend's pre-registered UCSD ID card to attend the concert?</strong><br>
+                              No. UCSD ID cards are not transferable. Misuse of a UCSD ID card is a violation of the student code of conduct and the UCSD Principles of Community. Students who allow someone else to use their ID card are subject to significant consequences through the student conduct process.<br><br>
+
+                              <strong>Is the concert for all ages?</strong><br>
+                              Yes. (Valid UCSD ID required)<br><br>
+
+                              <strong>Do I need a wristband to get in?</strong><br>
+                              Concert wristbands are not needed to get into the venue, but will be distributed to the first 90 students in line to gain floor access. If you have successfully registered to attend the concert, your UCSD ID card and your unique QR code is your ticket.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingNine">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                              Will There Be...
+                            </button>
+                          </h2>
+                          <div id="collapseNine" class="accordion-collapse collapse text-white" aria-labelledby="headingNine" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                              <strong>Will there be First Aid on site?</strong><br>
+                              Yes. A First Aid station will be available on site at Box Office/Will Call at the venue.<br><br>
+                              <strong>Will there be flushable toilets and sinks available?</strong><br>
+                              Yes. There will be restrooms available for use at the venue.<br><br>
+                              <strong>Will there be free water?</strong><br>
+                              No. There will not be free water at the venue.<br><br>
+                              <strong>Will there be an Info booth/area?</strong><br>
+                              Yes. This will be located at Box Office/Will Call at the venue.<br><br>
+                              <strong>Will there be ADA bathrooms/parking?</strong><br>
+                              Yes. For more information regarding ADA inquiries, please contact <a href="mailto:ascefestivals@ucsd.edu">ascefestivals@ucsd.edu</a>.<br><br>
+                              <strong>Will there be a Lost & Found?</strong><br>
+                              Yes. This will be located at Box Office/Will Call at the venue. The location will be clearly marked on the concert map and visible on the venue. After the concert, found items will be relocated to the UCSD Police Department.<br><br>
+                              <strong>Will there be ATMs?</strong><br>
+                              No. There will not be ATMs at the venue.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingTen">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                              What Can't I Bring to the Concert?
+                            </button>
+                          </h2>
+                          <div id="collapseTen" class="accordion-collapse collapse text-white" aria-labelledby="headingTen" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                              <!--TODO: brea into 2 sections on desktop?-->
+                              Please leave the following items at home. They may NOT be brought into Horizon:<br>
+                              <ul>
+                                <li>Alcohol</li>
+                                <li>Drugs & Drug Paraphernalia</li>
+                                <li>Knives, Weapons, etc.</li>
+                                <li>Fireworks or Explosives</li>
+                                <li>Tobacco or Vapor Products</li>
+                                <li>No bags or backpacks</li>
+                                <li>Bicycles or Unicycles</li>
+                                <li>Skateboards or Roller Skates</li>
+                                <li>Professional Cameras</li>
+                                <li>Video Cameras</li>
+                                <li>Selfie Sticks, Tripods or Monopods</li>
+                                <li>Audio Recording Devices</li>
+                                <li>Glass, Cans, Cups or Coolers</li>
+                                <li>Disposable Water Bottles</li>
+                                <li>Outside Food & Beverage</li>
+                                <li>Camel Backs or Bota Bags</li>
+                                <li>Instruments</li>
+                                <li>Laser Pointers</li>
+                                <li>Chains/Chain Wallets</li>
+                                <li>Chairs or Umbrellas</li>
+                                <li>Totems, Signs or Flags</li>
+                                <li>Hula Hoops or Batons</li>
+                                <li>Stuffed Animals</li>
+                                <li>Pets</li>
+                                <li>Drones or Remote Control Aircraft, Toys or Cars</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingEleven">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                              What Should I Bring to the Concert?
+                            </button>
+                          </h2>
+                          <div id="collapseEleven" class="accordion-collapse collapse text-white" aria-labelledby="headingEleven" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                              Students must bring their pre-registered UCSD student ID cards to enter the concert. No exceptions.<br>
+                              You must keep your UCSD student ID card on you at all times while on campus.<br><br>
+
+                              <strong>Bag Policy</strong><br>
+                              Small bags within the size 16” x 16” x 8” are allowed. All bags are subject to search by security officers.<br><br>
+
+                              Students are also encouraged to bring the following:<br>
+                              <ul>
+                                <li>A mask</li>
+                                <li>Hand Sanitizer</li>
+                                <li>A fully charged cell phone (bring a portable charger too, if you've got one)</li>
+                                <li>A plan to get home safely</li>
+                                <li>Earplugs (it may get a little loud)</li>
+                                <li>Some cash (Epstein Family Amphitheater concessions will be open during the event)</li>
+                              </ul>
+
+                              <strong>Can I bring outside food/beverage?</strong><br>
+                              <ul>
+                                <li>No outside food or beverage will be permitted.</li>
+                                <li>No disposable water bottles are allowed in the concert, even if they are sealed. Only empty, reusable, non-glass water bottles will be allowed.</li>
+                              </ul>
+
+                              <strong>Can I bring a camera?</strong><br>
+                              Point and shoot cameras and camera phones only. NO video or professional cameras with a removable lens, selfie sticks, and other photo accessories will be permitted.<br><br>
+                              
+                              <strong>Can I bring an animal to the concert?</strong><br>
+                              Service animals specifically trained to assist a person with a disability are welcome.  No other animals, including pets, therapy animals, or emotional support animals, are allowed.<br><br>
+                              
+                              <strong>Can I bring a bag to the Concert?</strong><br>
+                              Only fanny packs, small bags and backpacks 16” x 16” x 8” will be permitted into the concert. Backpacks and bags are not allowed at the concert.
+                              
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <div class="position-absolute start-75" style="z-index: -1;">
+            <img src="./images/spacebear_float.png" alt="" style="width: 50%; height: 50%; opacity: 1; max-width: 460px;">
+          </div>
+
+          <!--Safety-->
+          <section id="safety">
+            <div>
+                <div class="col-10 mx-auto">
+                    <h2 class="section-title mb-3">Safety</h2>
+
+                    <div class="d-flex justify-content-end">
+                      <button data-target="safetyAccordion" data-expanded="false" type="button" class="btn btn-link text-white" onclick="expandAll(this)">Expand All</button>
+                    </div>
+
+                    <div class="accordion" id="safetyAccordion">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingTwelve">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                              Covid-19 Protocols
+                            </button>
+                          </h2>
+                          <div id="collapseTwelve" class="accordion-collapse collapse text-white" aria-labelledby="headingTwelve" data-bs-parent="#safetyAccordion">
+                            <div class="accordion-body">
+                              Regarding COVID safety, only those who registered for the concert and are compliant with the COVID-19 Vaccine Mandate will receive
+                              a ticket to the concert. Masks are highly encouraged. COVID guidance and concert policies may change as the campus and county respond
+                              to the ongoing pandemic.<br><br>
+
+                              Masks are not required to attend this event.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingThirteen">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                              Drug Safety
+                            </button>
+                          </h2>
+                          <div id="collapseThirteen" class="accordion-collapse collapse text-white" aria-labelledby="headingThirteen" data-bs-parent="#safetyAccordion">
+                            <div class="accordion-body">
+                              <ol>
+                                <li>
+                                  Do NOT mix drugs and alcohol. There is no way to anticipate how your body will react to the mixture-the reaction could be very serious or even fatal.
+                                </li><br>
+                                <li>
+                                  Remember: You never know what you are actually taking. Though distributors may assure you that you are getting a certain drug, there is a high likelihood that this drug has been cut with something else, or is a different drug entirely. This is especially common with pills. 
+                                </li><br>
+                                <li>
+                                  If you do choose to engage in drug use:
+                                  <ul>
+                                    <li>
+                                      Test your pills with an affordable drug testing kit, like those sold at <a href="https://dancesafe.org/" target="_blank">dancesafe.org</a>. DISCLAIMER: Drug testing kits do not indicate that a substance is safe. Drug use is never 100% safe. 
+                                    </li>
+                                    <li>
+                                      Make sure to remain hydrated. A good rule of thumb is to drink about two cups of water (500ml) every hour. Be careful to not consume water too quickly- this can cause an electrolyte imbalance that could become fatal.
+                                    </li>
+                                    <li>
+                                      If you do not feel well, seek help immediately! DO NOT SLEEP IT OFF. The symptoms of drug overdose can be the same, more exaggerated, or totally different than those of excessive alcohol use.
+                                    </li>
+                                    <li>
+                                      You WILL NOT be punished for your drug/alcohol use retroactively if you seek help from an official. Your safety is our first priority.
+                                    </li>
+                                  </ul>
+                                </li><br>
+                                <li>
+                                  For friends of people who are engaging in drug use:
+                                  <ul>
+                                    <li>
+                                      Monitor your friend, and make sure they are drinking enough water.
+                                    </li>
+                                    <li>
+                                      If they are displaying extreme or out of character behavior, get them help. It could be the result of drugs or excessive alcohol in their system, and their health may be at risk.
+                                    </li>
+                                    <li>
+                                      By speaking up you could save your friend from serious harm, and could even save their life.
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingFourteen">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                              Alcohol Safety
+                            </button>
+                          </h2>
+                          <div id="collapseFourteen" class="accordion-collapse collapse text-white" aria-labelledby="headingFourteen" data-bs-parent="#safetyAccordion">
+                            <div class="accordion-body">
+                              You don't have to drink to have a good time at Horizon, but if you do choose to:<br><br>
+                              <ol>
+                                <li>
+                                  Eat before, during, and after the event.
+                                </li>
+                                <li>
+                                  Alternate between alcoholic and non-alcoholic drinks.
+                                </li>
+                                <li>
+                                  Choose beer or cider instead of shots.
+                                </li>
+                                <li>
+                                  Keep track of the number of drinks you have (especially the amount of liquor). Determine in advance the number of drinks you will consume, and stick to it! Keep in mind that one drink is a 12 oz beer, 5 oz of wine, or 1.5 oz of liquor.
+                                </li>
+                                <li>
+                                  Tell your friends to let you know when you've had too much to drink.
+                                </li>
+                                <li>
+                                  Pace your drinks to one or less per hour, and avoid drinking games.
+                                </li>
+                                <li>
+                                  Don't take (or give) unwanted peer pressure.
+                                </li>
+                                <li>
+                                  Have a designated driver.
+                                </li>
+                                <li>
+                                  Watch over your friends and peers. If you see someone in medically dangerous conditions, do not be afraid to reach out to a security guard, police officer, event staff or event volunteer to ask for help. Your health and safety is our first priority!
+                                </li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFifteen">
+                              <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+                                Sexual Assault Prevention
+                              </button>
+                            </h2>
+                            <div id="collapseFifteen" class="accordion-collapse collapse text-white" aria-labelledby="headingFifteen" data-bs-parent="#safetyAccordion">
+                              <div class="accordion-body">
+                                  <strong>Clarifying Consent</strong>
+                                  <ul>
+                                    <li>
+                                      Consent is a mutual, affirmative, voluntary, and revocable agreement by each participant to engage in sexual activity. An informed verbal “yes” must accompany positive and engaging body language.
+                                    </li>
+                                    <li>
+                                      The initiator of sexual activity is responsible for receiving consent from their partner. Obtaining consent is a continuous process, meaning consent to kissing doesn't mean consent to everything else. Consent is voluntary and can be withdrawn at any time. Consent must be given without coercion, force, threats or intimidation by the initiator.
+                                    </li>
+                                    <li>
+                                      Consent cannot be given when someone is under the influence of drugs and/or alcohol. However, perpetrators may attempt to use alcohol and/or drugs to facilitate a sexual assault. Statistically, the majority of reported sexual assaults occur while one or both parties are under the influence of alcohol or drugs.  Alcohol or drugs is never an excuse for choosing to violate another person.
+                                    </li>
+                                    <li>
+                                      There are a number of drugs that may be added to beverages with the intent of altering the consciousness or incapacitating a person without their knowledge. Substances are particularly dangerous when combined with alcohol, and often produce amnesia, leaving a victim unclear about what occurred.  These drugs can facilitate criminal activity, most often acts of sexual misconduct or sexual assault.
+                                    </li>
+                                    <li>
+                                      Sexual assault is any unwanted, non-consensual behavior from kissing and fondling to rape. Ignorance of the law or of University policy concerning sexual assault, sexual misconduct and sexual harassment is never an excuse for non-consensual sexual behavior.
+                                    </li>
+                                  </ul>
+                                  <strong>Preventing Sexual Assault</strong><br>
+                                  Keeping UC San Diego safe is a community responsibility. Check out the tips below on how you can help prevent sexual assault:
+                                  <ul>
+                                    <li>
+                                      Identify common behaviors that often precede an assault. Recognizable red flags include seeing someone who is attempting to separate an intoxicated individual from their friends, or continuing to pour drinks for an individual who is clearly beyond their limit.
+                                    </li>
+                                    <li>
+                                      Take action as a responsive bystander and remember to use <a href='https://care.ucsd.edu/programs/ideas.html' target='_blank'>IDEAS</a> if you see those behaviors happening.  You can help someone who is intoxicated by reconnecting them with their friends, or calling a CSO to escort that person home. You can also notify any of the concert volunteers or law enforcement officials on site if you are concerned for someone's safety and well-being.
+                                    </li>
+                                  </ul>
+                                  <strong>Supporting Survivors of Sexual Assault</strong><br>
+                                  If something happens to a friend, know you can be a responsive bystander by showing your support:
+                                  <ul>
+                                    <li>
+                                      Listen and believe them. Let them know that you care.
+                                    </li>
+                                    <li>
+                                      Remember sexual assault is never the fault of the survivor.
+                                    </li>
+                                    <li>
+                                      Be aware of your response and respect their decisions.
+                                    </li>
+                                    <li>
+                                      Know the resources and seek support for yourself.
+                                    </li>
+                                  </ul>
+                                  <strong>Resources</strong><br>
+                                  <a href='https://students.ucsd.edu/sponsor/sarc/index.html' target='_blank'>CARE at the Sexual Assault Resource Center</a> is a confidential and free resource for all students, staff, and faculty affected by sexual assault, relationship violence, and stalking. If you or a friend need to speak with a confidential CARE advocate, call 858-534-5793.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSixteen">
+                              <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+                                Other Important Party Tips
+                              </button>
+                            </h2>
+                            <div id="collapseSixteen" class="accordion-collapse collapse text-white" aria-labelledby="headingSixteen" data-bs-parent="#safetyAccordion">
+                              <div class="accordion-body">
+                                <ul>
+                                  <li>
+                                    DO NOT serve alcohol to anyone under 21 and if you are under 21, don't consume alcohol.
+                                  </li>
+                                  <li>
+                                    If your neighbors call or stop by to tell you the party is too loud, be a good neighbor and turn down the volume.
+                                  </li>
+                                  <li>
+                                    It's okay to call the police if a party gets out of hand.
+                                  </li>
+                                  <li>
+                                    If a guest has had too much to drink, don't let them drive home. Call a taxi or arrange for a ride with another guest who is sober, or invite them to stay over.
+                                  </li>
+                                  <li>
+                                    Acquaint yourself with the San Diego County social host laws and the consequences of breaking those laws. If caught breaking these laws, social hosts will be held accountable and may be:
+                                    <ul>
+                                      <li>
+                                        cited/arrested
+                                      </li>
+                                      <li>
+                                        fined up to $1000 or more
+                                      </li>
+                                      <li>
+                                        serve up to 6 months in jail
+                                      </li>
+                                      <li>
+                                        be billed for law enforcement services
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    Inside the concert or out, if you are approached by a police or security officer, comply with them. This will minimize your chances of further consequences and will help them get you the help you need.
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="d-flex justify-content-center">
+          <div class="col-10 row pb-5" style="width: 100%;">
+            <div class="col-1"></div>
+            <div class="col col-sm-3 col-md-2 row">
+              <div class="col p-0">
+                <a href="https://www.instagram.com/ucsdasce/" target="_blank">
+                  <img class="img-fluid" src="./images/footer-instagram.png" alt="" style="height: var(--mobile-icon-size); min-width: var(--mobile-icon-size);">
+                </a>
+              </div>
+              <div class="col p-0">
+                <a href="https://www.facebook.com/ucsdasce/" target="_blank">
+                  <img class="img-fluid" src="./images/footer-facebook.png" alt="" style="height: var(--mobile-icon-size); min-width: var(--mobile-icon-size);">
+                </a>
+              </div>
+              <div class="col p-0">
+                <a href="https://www.tiktok.com/@ascebear" target="_blank">
+                  <img class="img-fluid" src="./images/footer-tiktok.png" alt="" style="height: var(--mobile-icon-size); min-width: var(--mobile-icon-size);">
+                </a>
+              </div>
+            </div>
+            
+
+            <div id="spacer" class="col"></div>
+
+            <div class="col-1 d-flex justify-content-end">
+              <a href="https://asce.ucsd.edu" target="_blank">
+                <img class="img-fluid" src="./images/footer-asce.png" alt="" style="height: var(--mobile-icon-size); min-width: var(--mobile-icon-size);">
+              </a>
+            </div>
+            <div class="col-1"></div>
+          </div>
+        </footer>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>

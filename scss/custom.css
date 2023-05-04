@@ -11782,7 +11782,7 @@ textarea.form-control-lg {
 }
 /* ************************************************************************* */
 body {
-  font-family: "Space Mono" !important;
+  font-family: "Space Mono", "Courier New", Courier, monospace !important;
 }
 
 #container {
@@ -11805,11 +11805,20 @@ body {
 }
 
 .section-title {
-  font-family: "HK Grotesk Wide";
+  font-family: "HK Grotesk Wide", Arial, Helvetica, sans-serif;
   letter-spacing: 0.12em;
   font-size: 2.5rem;
 }
 
+section {
+  padding: 60px 0px;
+}
+
+@media (min-width: 694px) {
+  section {
+    padding-top: 150px;
+  }
+}
 a {
   color: #FFB27D;
 }
@@ -11819,9 +11828,22 @@ a:hover {
 }
 
 strong {
-  color: #E054F0;
+  display: inline-block;
+  color: #F084F4;
 }
 
+.accordion-body {
+  justify-content: center;
+  max-width: 700px;
+  margin: auto;
+}
+
+@media (min-width: 769px) {
+  strong {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+}
 /* ***************************** Teaser Layout ****************************** */
 #reg-btn-container-mobile {
   display: none;
@@ -11833,6 +11855,12 @@ strong {
 
 #splash-comet {
   opacity: 0.6;
+  mix-blend-mode: color-dodge;
+  background-color: #000000;
+}
+
+#bear-mobile {
+  display: none;
 }
 
 @media (max-width: 769px) {
@@ -11854,9 +11882,16 @@ strong {
   }
   #splash-comet {
     opacity: 1;
+    mix-blend-mode: color-dodge;
   }
   #orange-container {
     width: 100vw;
+  }
+  #bear-desktop {
+    display: none;
+  }
+  #bear-mobile {
+    display: block;
   }
 }
 /* ************************ Socials Header and Footer ********************** */
@@ -11866,37 +11901,25 @@ footer img {
 
 /* ********************* Comet and Asteroid and Rocket ********************* */
 h2, .h2 {
-  font-family: "Gobold High Normal";
+  font-family: "Gobold High Normal", Arial, Helvetica, sans-serif;
   color: var(--pluto-white);
   padding: 0 0.25em;
   text-transform: uppercase;
   text-align: center;
 }
 
-section {
-  padding: 60px 0px;
-}
-
 #rocket-container {
   transform: translate(0px, -50px);
+  overflow-x: hidden;
 }
 
 #rocket {
   width: 75%;
   opacity: 1;
-  transform: rotate(-30deg);
+  transform: translate(50%);
+  max-width: 500px;
 }
 
-@media (min-width: 694px) {
-  section {
-    padding-top: 150px;
-  }
-}
-@media (max-width: 694px) {
-  #rocket {
-    width: 50%;
-  }
-}
 /* ****************************** Buttons  ********************************** */
 .main-btn {
   padding: 20px 60px;
@@ -11934,7 +11957,7 @@ section {
   color: #FFFFFF;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "HK Grotesk Wide";
+  font-family: "HK Grotesk Wide", Arial, Helvetica, sans-serif;
 }
 #mobile-nav-container a li {
   list-style-type: none;
@@ -11969,14 +11992,14 @@ section {
   bottom: 30px;
 }
 
-@media (max-height: 645px) {
+@media (max-height: 670px) {
   #mobile-nav-container a {
     height: 100%;
     width: 100%;
     color: #FFFFFF;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: "Gobold High Normal";
+    font-family: "Gobold High Normal", Arial, Helvetica, sans-serif;
   }
   #mobile-nav-container a li {
     list-style-type: none;
@@ -12023,7 +12046,7 @@ section {
 
 .artist-title {
   color: #333333;
-  font-family: "Gobold High Bold";
+  font-family: "Gobold High Bold", Arial, Helvetica, sans-serif;
   font-size: 3.5rem;
 }
 
@@ -12086,7 +12109,7 @@ section {
 /* *************************** Countdown Timer ***************************** */
 #landing-hero h1, #landing-hero .h1 {
   text-transform: uppercase;
-  font-family: "HK Grotesk Wide";
+  font-family: "HK Grotesk Wide", Arial, Helvetica, sans-serif;
   font-size: var(--horizon-font-size);
   letter-spacing: 0.12em;
   height: 60px;
@@ -12095,6 +12118,8 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-clip-path: inset(10px 10px 9px 3px);
+          clip-path: inset(10px 10px 9px 3px);
 }
 
 @media (min-width: 769px) {
@@ -12115,13 +12140,13 @@ section {
 }
 
 .countdown .countdown__timer p {
-  font-family: "Gobold High Bold";
+  font-family: "Gobold High Bold", Arial, Helvetica, sans-serif;
   font-size: var(--time-font-size);
   font-kerning: 3%;
 }
 
 .countdown .countdown__timer h3, .countdown .countdown__timer .h3 {
-  font-family: "Space Mono";
+  font-family: "Space Mono", "Courier New", Courier, monospace;
   font-size: 14px;
   line-height: 150%;
   font-kerning: 0%;

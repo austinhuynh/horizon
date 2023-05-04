@@ -10,6 +10,7 @@ function navToggle() {
     navBtn.classList.add('close');
     navContainer.style.display = 'none';
     body.style.overflow = 'visible';
+    body.style.overflowX = 'hidden';
     navOpen = false;
     
   } else {
@@ -77,14 +78,20 @@ function expandAll(Btn) {
   }
 }
 
-// desktop navbar intersection observer
+//desktop navbar intersection observer
 const sections = document.querySelectorAll("section");
 const observer = new IntersectionObserver(entries => {
-  entries.forEach
-  console.log(entries);
-})
-
-observer.observe(sections[0])
+  entries.forEach(entry => {
+    var navLink = document.getElementById('nav-' + entry.target.getAttribute('id'));
+    if(entry.isIntersecting) {
+      navLink.classList.add('active');
+    } else {
+      navLink.classList.remove('active');
+    }
+  })}, {rootMargin: "-45%"})
+sections.forEach(section => {
+observer.observe(section);
+});
 
 // build a countdown timer
 function countdownTimer(targetDate) {
